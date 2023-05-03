@@ -417,6 +417,8 @@ Spectrogram.prototype.play = function() {
             .attr('x1', this.width)
             .attr('x2', this.width)
             .attr('y2', this.height);
+            //print to line?
+            console.log((this.endTime - startTime));
     }
 };
 
