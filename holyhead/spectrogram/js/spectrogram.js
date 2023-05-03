@@ -348,7 +348,7 @@ Spectrogram.prototype.showProgress = function() {
     if (this.isPlaying && this.isLoaded) {
         this.curDuration = (this.context.currentTime - this.startTime);
         console.log("current duration");
-        console.log(this.curDuration);
+        console.log(this.context.currentTime);
 
         window.requestAnimFrame(this.showProgress.bind(this));
 
