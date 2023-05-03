@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Spectrogram</title>
+        <link href="spectrogram/css/spectrogram.css" media="screen" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="spectrogram/js/d3.v5.min.js"></script>
+        <script type="text/javascript" src="spectrogram/js/spectrogram.js"></script>
+    </head>
+    <body>
+        <p>Test Spectrogram</p>
+        <div id="vis" class="spectrogram"></div>
+        <script>
+            var sample = new Spectrogram('audio/output.wav', "#vis", {
+            width: 600,
+            height: 300,
+            colorScheme: ['#440154', '#472877', '#3e4a89', '#31688d', '#26838e', '#1f9e89', '#36b778', '#6dcd59', '#b4dd2c', '#fde725']
+            });
+        </script>
+    </body>
+</html>
