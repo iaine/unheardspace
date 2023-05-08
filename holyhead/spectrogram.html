@@ -39,10 +39,10 @@
 
             oscillateData = (data) => {
                 console.log(data);
-                for (var d in data) {
-                    console.log(d);
-                    let t = Number.parseFloat(parseInt(d["time"]) - 1680541253185);
-                    console.log(d["time"]);
+                for (var d=0; d<length(data);d++) {
+                    console.log(data[d]);
+                    let t = Number.parseFloat(parseInt(data[d]["time"]) - 1680541253185);
+                    console.log(data[d]["time"]);
                     console.log(t);
                     // create Oscillator node
                     const oscillator = audioCtx.createOscillator();
@@ -58,6 +58,7 @@
                     oscillator.connect(audioCtx.destination);
                     //gain.connect(audioCtx.destination);
                     oscillator.start();
+                    oscillator.stop(0.4);
                 }
             }
         }
