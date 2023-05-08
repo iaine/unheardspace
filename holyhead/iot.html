@@ -16,17 +16,8 @@
         <p>Map of the Holyhead Road IoT with WiFi</p>
         <div id="map" style="width: 600px; height: 400px;"></div>
         <script>
-            createMap("map", 52.4110, -1.5229, 15);
+            createMap("map", 52.4110, -1.5229, 16);
             fetch("data/ble.json")
-            .then(res => res.json())
-            .then(out => setCircleColours(out) )
-            .catch(err => { throw err });
-        </script>
-        <p>Map of the Holyhead Road Bluetooth Connections with WiFi</p>
-        <div id="bluemap" style="width: 600px; height: 400px;"></div>
-        <script>
-            createMap("bluemap", 52.4110, -1.5229, 16);
-            fetch("data/bluetooth.json")
             .then(res => res.json())
             .then(out => setCircleColours(out) )
             .catch(err => { throw err });
