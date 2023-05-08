@@ -24,7 +24,11 @@
             .catch(err => { throw err });
         </script>
         <p>A simple sonification of the above data.<br />
-            The higher tones are the devices appearing through Bluetooth Low Energy scanning. The WiFi is the lower tone.</p>
+            The sonification is set to 600BPM to reduce the playing time to under 3 minutes. The tones are set to play
+            roughly when they appear in the data. 
+            The higher tones are the devices appearing through Bluetooth Low Energy scanning (or green in the map). The WiFi is the lower tone (or blue).<br />
+            The duration is linked to the signal strength as registered by decibels so the tones may overlap.
+        </p>
             <audio controls>
             <source src="data/HolyHeadBLE.wav" > </source>
         </audio>
