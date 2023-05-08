@@ -29,3 +29,12 @@ function setCircleColours (markers) {
         L.circle([ x['lat'], x['lon']], 20, {color: getColour(x["cat"]), opacity:.5, radius:0.75}).bindPopup(x["name"]).addTo(map)
     });
 }
+
+function createTable (data) {
+    var table = document.getElementsByTagName("TABLE");
+    var div = document.getElementById('datatable');
+    table += "<tr><td>Name</td><td>Decibels</td><td>Category</td><td>" 
+    //{"time":"1680541253185","name":" FMB130_2471582_LE","decibels":"-103","lat":52.4104,"lon":-1.5213,"cat":"ble","new_decibels":[5.15]}
+    data.forEach(d => table += "<tr><td>" + d["name"] + "</td><td>" + d["decibels"] + "</td><td>" + d["cat"] + "</td><td>" )
+    div.innerHTML += table + "</table>";
+}
