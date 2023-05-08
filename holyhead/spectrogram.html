@@ -49,9 +49,9 @@
                     //let gain = audioCtx.createGain();
                     oscillator.type = "square";
                     if (d["cat"] == "wifi") {
-                        oscillator.frequency.setValueAtTime(220, t); // value in hertz
+                        oscillator.frequency.setValueAtTime(220.0, t); // value in hertz
                     } else {
-                        oscillator.frequency.setValueAtTime(440, t); // value in hertz
+                        oscillator.frequency.setValueAtTime(440.0, t); // value in hertz
                     }
                     
                     oscillator.connect(audioCtx.destination);
