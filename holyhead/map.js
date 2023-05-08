@@ -35,7 +35,6 @@ function createTable (data) {
     var div = document.getElementById('datatable');
     div.style.border = '1px solid black';
     table = "<table><tr><td>Name</td><td>Decibels</td><td>Category</td><td>" 
-    //{"time":"1680541253185","name":" FMB130_2471582_LE","decibels":"-103","lat":52.4104,"lon":-1.5213,"cat":"ble","new_decibels":[5.15]}
     data.forEach(d => table += "<tr><td>" + d["name"] + "</td><td>" + d["decibels"] + "</td><td>" + d["cat"] + "</td><td>" )
     div.innerHTML += table + "</table>";
 }
