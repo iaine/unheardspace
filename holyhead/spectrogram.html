@@ -46,7 +46,7 @@
                 oscillator.connect(primaryGainControl);
                 primaryGainControl.connect(audioCtx.destination);
 
-                oscillator.start();
+                //oscillator.start();
                 for (var d=0;d<data.length;d++) {
                     let t = Number.parseFloat(parseInt(data[d]["time"]) - 1680541253185);
                     t = (t > 0) ? t/100000:0;
@@ -55,12 +55,16 @@
                     if (d["cat"] == "wifi") {
                         oscillator.frequency.setValueAtTime(60.0, t); 
                         primaryGainControl.gain.setValueAtTime(0.05, t);
+                        oscillator.start(t);
+                        oscillator.stop(t+1.0);
                     } else {
                         oscillator.frequency.setValueAtTime(223.0, t); 
                         primaryGainControl.gain.setValueAtTime(0.05, t);
+                        oscillator.start(t);
+                        oscillator.stop(t+0.5);
                     }   
                 }
-                oscillator.stop(audioCtx.currentTime + 5.0);
+                //oscillator.stop(audioCtx.currentTime + 5.0);
             }
 
             audio.play();
