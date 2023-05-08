@@ -19,7 +19,11 @@
             });
         </script>
         <p>Sonification</p>
+        <button id="start" >Start</button><button id="stop" >Stop</button>
         <script type="text/javascript">
+            
+            
+            sonifyData = () => {
             const audioCtx = new AudioContext();
             const audio = new Audio("audio/output.wav");
 
@@ -53,6 +57,9 @@
                     oscillator.start();
                 }
             }
+        }
+
+        document.querySelector('#start').onclick = () => sonifyData();
         </script>
                 <p>The captured data</p>
                 <div id="datatable"></div>
