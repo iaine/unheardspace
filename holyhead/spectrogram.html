@@ -38,16 +38,18 @@
             .catch(err => { throw err });
 
             oscillateData = (data) => {
-                // create Oscillator node
-                const oscillator = audioCtx.createOscillator();
-                const primaryGainControl = audioCtx.createGain();
-                oscillator.type = "square";
-
-                oscillator.connect(primaryGainControl);
-                primaryGainControl.connect(audioCtx.destination);
+                
 
                 //oscillator.start();
                 for (var d=0;d<data.length;d++) {
+                    // create Oscillator node
+                    const oscillator = audioCtx.createOscillator();
+                    const primaryGainControl = audioCtx.createGain();
+                    oscillator.type = "square";
+
+                    oscillator.connect(primaryGainControl);
+                    primaryGainControl.connect(audioCtx.destination);
+                    
                     let t = Number.parseFloat(parseInt(data[d]["time"]) - 1680541253185);
                     t = (t > 0) ? t/100000:0;
                     console.log(t);
