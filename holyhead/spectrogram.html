@@ -39,7 +39,7 @@
 
             oscillateData = (data) => {
 
-                for (d in data) {
+                for (var d in data) {
                     console.log(d)
                     let t = Number.parseFloat(parseInt(d["time"]) - 1680541253185);
                     console.log(t)
