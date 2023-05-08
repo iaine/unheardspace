@@ -23,5 +23,10 @@
             .then(out => setCircleColours(out) )
             .catch(err => { throw err });
         </script>
+        <p>A simple sonification of the above data.<br />
+            The higher tones are the devices appearing through Bluetooth Low Energy scanning. The WiFi is the lower tone.</p>
+            <audio controls>
+            <source src="data/HolyHeadBLE.wav" > </source>
+        </audio>
     </body>
 </html>
