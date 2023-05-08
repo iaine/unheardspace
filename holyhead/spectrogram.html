@@ -35,18 +35,12 @@
             .then(out => oscillateData(out) )
             .catch(err => { throw err });
 
-            audio.play();
-
             oscillateData = (data) => {
                 console.log(data);
                 for (var d=0;d<data.length;d++) {
-                    console.log(data[d]);
                     let t = Number.parseFloat(parseInt(data[d]["time"]) - 1680541253185);
-                    console.log(data[d]["time"]);
-                    console.log(t);
                     // create Oscillator node
                     const oscillator = audioCtx.createOscillator();
-
                     //let gain = audioCtx.createGain();
                     oscillator.type = "square";
                     if (d["cat"] == "wifi") {
@@ -61,6 +55,8 @@
                     oscillator.stop(0.4);
                 }
             }
+
+            audio.play();
         }
 
         document.querySelector('#start').onclick = () => sonifyData();
