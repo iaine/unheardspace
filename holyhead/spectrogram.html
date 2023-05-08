@@ -38,7 +38,7 @@
             audio.play();
 
             oscillateData = (data) => {
-
+                console.log(data);
                 for (var d in data) {
                     console.log(d);
                     let t = Number.parseFloat(parseInt(d["time"]) - 1680541253185);
