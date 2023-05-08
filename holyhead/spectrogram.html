@@ -49,10 +49,9 @@
 
                     oscillator.connect(primaryGainControl);
                     primaryGainControl.connect(audioCtx.destination);
-                    
+
                     let t = Number.parseFloat(parseInt(data[d]["time"]) - 1680541253185);
                     t = (t > 0) ? t/100000:0;
-                    console.log(t);
   
                     if (d["cat"] == "wifi") {
                         oscillator.frequency.setValueAtTime(60.0, t); 
