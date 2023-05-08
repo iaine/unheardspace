@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Holyhead Road</title>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+        crossorigin=""/>
+        <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+     integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+     crossorigin=""></script>
+     <script src="map.js" ></script>
+    </head>
+    <body>
+        <p>Map of the Holyhead Road walk</p>
+        <img src="data/holyheadmap.png" />
+        <p>Map of the Holyhead Road IoT with WiFi</p>
+        <div id="map" style="width: 600px; height: 400px;"></div>
+        <script>
+            createMap("map", 52.4110, -1.5229, 15);
+            bledata = JSON.parse("data/ble.json");
+            setCircleColours(bledata);
+        </script>
+        <p>Map of the Holyhead Road Bluetooth Connections with WiFi</p>
+        <div id="bluemap" style="width: 600px; height: 400px;"></div>
+        <script>
+            createMap("bluemap", 52.4110, -1.5229, 15);
+            bluedata = JSON.parse("data/bluetooth.json");
+            setCircleColours(bluedata);
+        </script>
+    </body>
+</html>
