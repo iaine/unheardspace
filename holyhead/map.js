@@ -25,6 +25,6 @@ function setCircle (markers) {
 
 function setCircleColours (markers) {
     markers.forEach(function(x) { 
-        L.circle([ x['lat'], x['lon']], 20, {color: getColour(x["cat"]), opacity:.5, popup: x["name"]} ).addTo(map)
+        L.circle([ x['lat'], x['lon']], 20, {color: getColour(x["cat"]), opacity:.5}).bindPopup(x["name"]).addTo(map)
     });
 }
