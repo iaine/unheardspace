@@ -37,31 +37,29 @@
 
             oscillateData = (data) => {
 
-                
+                oscillator.start();
                 for (var d=0;d<data.length;d++) {
-                    let t = Number.parseFloat(parseInt(data[d]["time"]) - 1680541253185);
+                    let _t = Number.parseFloat(parseInt(data[d]["time"]) - 1680541253185);
+                    t = (_t > 0) ? t/100000:0;
                     console.log(t);
                     // create Oscillator node
                     const oscillator = audioCtx.createOscillator();
                     const primaryGainControl = audioCtx.createGain();
                     //let gain = audioCtx.createGain();
                     oscillator.type = "square";
+
+                    oscillator.connect(primaryGainControl);
+                    primaryGainControl.connect(audioCtx.destination);
+
                     if (d["cat"] == "wifi") {
                         oscillator.frequency.setValueAtTime(60.0, t); 
                         primaryGainControl.gain.setValueAtTime(0.05, t);
                     } else {
                         oscillator.frequency.setValueAtTime(223.0, t); 
                         primaryGainControl.gain.setValueAtTime(0.05, t);
-                    }
-                    
-                    oscillator.connect(primaryGainControl);
-                    primaryGainControl.connect(audioCtx.destination);
-                    //gain.connect(audioCtx.destination);
-                    oscillator.start();
-                    oscillator.stop(0.4);
-
-                    
+                    }   
                 }
+                oscillator.stop(audioCtx.currentTime + 5.0);
             }
 
             audio.play();
