@@ -40,16 +40,17 @@
                 
                 for (var d=0;d<data.length;d++) {
                     let t = Number.parseFloat(parseInt(data[d]["time"]) - 1680541253185);
+                    console.log(t);
                     // create Oscillator node
                     const oscillator = audioCtx.createOscillator();
                     const primaryGainControl = audioCtx.createGain();
                     //let gain = audioCtx.createGain();
                     oscillator.type = "square";
                     if (d["cat"] == "wifi") {
-                        oscillator.frequency.setValueAtTime(220.0, t); 
+                        oscillator.frequency.setValueAtTime(60.0, t); 
                         primaryGainControl.gain.setValueAtTime(0.05, t);
                     } else {
-                        oscillator.frequency.setValueAtTime(440.0, t); 
+                        oscillator.frequency.setValueAtTime(223.0, t); 
                         primaryGainControl.gain.setValueAtTime(0.05, t);
                     }
                     
