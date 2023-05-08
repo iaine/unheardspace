@@ -40,7 +40,7 @@
                 oscillator.start();
                 for (var d=0;d<data.length;d++) {
                     let _t = Number.parseFloat(parseInt(data[d]["time"]) - 1680541253185);
-                    t = (_t > 0) ? t/100000:0;
+                    t = (_t > 0) ? _t/100000:0;
                     console.log(t);
                     // create Oscillator node
                     const oscillator = audioCtx.createOscillator();
