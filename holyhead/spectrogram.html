@@ -26,5 +26,41 @@
             .then(out => createTable(out) )
             .catch(err => { throw err });
         </script>
+        <p></p>
+        <script type="text/javascript">
+            const audioCtx = new AudioContext();
+            const audio = new Audio("audio/output.wav");
+
+            const source = audioCtx.createMediaElementSource(audio);
+            source.connect(audioCtx.destination);
+
+            fetch("data/table.json")
+            .then(res => res.json())
+            .then(out => oscillateData(out) )
+            .catch(err => { throw err });
+
+            audio.play();
+
+            oscillateData = (data) => {
+
+                for (d in data) {
+                    let t = d["time"] - 1680541253185;
+                    // create Oscillator node
+                    const oscillator = audioCtx.createOscillator();
+
+                    //let gain = audioCtx.createGain();
+                    oscillator.type = "square";
+                    if (d["cat"] == "wifi") {
+                        oscillator.frequency.setValueAtTime(220, t); // value in hertz
+                    } else {
+                        oscillator.frequency.setValueAtTime(440, t); // value in hertz
+                    }
+                    
+                    oscillator.connect(audioCtx.destination);
+                    //gain.connect(audioCtx.destination);
+                    oscillator.start();
+                }
+            }
+        </script>
     </body>
 </html>
