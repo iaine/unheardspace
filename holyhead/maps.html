@@ -25,7 +25,7 @@
         <p>Map of the Holyhead Road Bluetooth Connections with WiFi</p>
         <div id="bluemap" style="width: 600px; height: 400px;"></div>
         <script>
-            createMap("bluemap", 52.4110, -1.5229, 10);
+            createMap("bluemap", 52.4110, -1.5229, 16);
             fetch("data/bluetooth.json")
             .then(res => res.json())
             .then(out => setCircleColours(out) )
