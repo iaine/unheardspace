@@ -11,7 +11,8 @@ function getColour(colour) {
     const tags = {
         'wifi': "blue",
         'bluetooth': 'yellow',
-        'location': "red"
+        'location': "red", 
+        'ble': 'green'
       };
 
       return tags[colour];
@@ -25,6 +26,6 @@ function setCircle (markers) {
 
 function setCircleColours (markers) {
     markers.forEach(function(x) { 
-        L.circle([ x['lat'], x['lon']], 20, {color: getColour(x["cat"]), opacity:.5}).bindPopup(x["name"]).addTo(map)
+        L.circle([ x['lat'], x['lon']], 20, {color: getColour(x["cat"]), opacity:.5, radius:0.75}).bindPopup(x["name"]).addTo(map)
     });
 }
